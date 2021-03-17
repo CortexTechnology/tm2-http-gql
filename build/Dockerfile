@@ -1,4 +1,8 @@
 FROM golang:1.15-alpine as build
+ARG GITHUB_TOKEN
+
+RUN apk add git
+RUN git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/CortexTechnology/".insteadOf "https://github.com/CortexTechnology/"
 
 WORKDIR /build
 COPY . .
