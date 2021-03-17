@@ -1,0 +1,16 @@
+Заливаем tm2-rabbitmq с нужными очередями
+На КК создаем новый нового клиента:
+    Client ID: issuer-api
+    Client Protocol: openid-connect
+    Implicit Flow Enabled: On
+
+    Access Type: confidential
+    Authorization Enabled: true
+    Valid Redirect URIs: https://tm2.work/issuer-api/* (По факту Standard flow не используется, просто обязательное поле)
+
+    Credentials: Скопировать Secret для передачи потребителю API
+
+    ClientScopes: Добавить tm2_profile в Assigned Default Client Scopes
+
+
+Разворачиваем сервис, обязательно монтируем кастомный конфиг с необходимым authPublicKey используемого КК

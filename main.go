@@ -79,7 +79,7 @@ func (s httpGqlService) onGqlRequestReceived(response http.ResponseWriter, reque
 	wg.Add(1)
 
 	isTimedOut := false
-	timeoutTimer := time.NewTimer(5 * time.Second)
+	timeoutTimer := time.NewTimer(1 * time.Minute)
 	go func() {
 		<-timeoutTimer.C
 		response.WriteHeader(http.StatusGatewayTimeout)
